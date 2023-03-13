@@ -8,6 +8,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 
 /**
  * Fragment used to show how to navigate to another destination
@@ -25,9 +26,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val destinationButton = view.findViewById<Button>(R.id.navigate_destination_button)
-        destinationButton?.setOnClickListener {
-            findNavController().navigate(R.id.step_one_screen, null)
+        val options = navOptions {
+            anim {
+                enter = R.anim.slide_in_right
+                exit = R.anim.slide_out_left
+                popEnter = R.anim.slide_in_left
+                popExit = R.anim.slide_out_right
+            }
+        }
+        view.findViewById<Button>(R.id.navigate_destination_button)?.setOnClickListener {
+            findNavController().navigate(R.id.step_one_screen, null, options)
         }
 
         // The usage of an interface lets you inject your own implementation
