@@ -2,10 +2,12 @@ package com.gandalgom.sample.navigation
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 
 /**
  * Fragment used to show how to navigate to another destination
@@ -22,6 +24,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val destinationButton = view.findViewById<Button>(R.id.navigate_destination_button)
+        destinationButton?.setOnClickListener {
+            findNavController().navigate(R.id.step_one_screen, null)
+        }
+
         // The usage of an interface lets you inject your own implementation
         val optionMenuHost: MenuHost = requireActivity()
 
