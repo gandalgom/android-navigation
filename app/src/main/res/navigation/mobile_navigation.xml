@@ -9,4 +9,28 @@
         android:name="com.gandalgom.sample.navigation.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/step_one_screen"
+        android:name="com.gandalgom.sample.navigation.FlowStepFragment"
+        tools:layout="@layout/fragment_flow_step_one" >
+        <action
+            android:id="@+id/move_to_step_two"
+            app:destination="@id/step_two_screen" />
+    </fragment>
+    <fragment
+        android:id="@+id/step_two_screen"
+        android:name="com.gandalgom.sample.navigation.FlowStepFragment"
+        tools:layout="@layout/fragment_flow_step_two" >
+        <argument
+            android:name="flowStepNumber"
+            app:argType="integer"
+            android:defaultValue="2" />
+        <action
+            android:id="@+id/move_to_home"
+            app:destination="@id/home_screen" />
+    </fragment>
+    <fragment
+        android:id="@+id/deep_link_screen"
+        android:name="com.gandalgom.sample.navigation.DeepLinkFragment"
+        tools:layout="@layout/fragment_deep_link" />
 </navigation>
