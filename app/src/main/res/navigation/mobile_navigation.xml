@@ -32,5 +32,11 @@
     <fragment
         android:id="@+id/deep_link_screen"
         android:name="com.gandalgom.sample.navigation.DeepLinkFragment"
+        android:label="@string/deep_link"
         tools:layout="@layout/fragment_deep_link" />
+    <fragment
+        android:id="@+id/setting_screen"
+        android:name="com.gandalgom.sample.navigation.SettingFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_setting" />
 </navigation>
