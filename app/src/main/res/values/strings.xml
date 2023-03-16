@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Navigation Sample</string>
+
+    <!-- Menu strings -->
+    <string name="home">Home</string>
+    <string name="deep_link">Deep Link</string>
+    <string name="shopping_cart">Shopping Cart</string>
+
+    <!-- Screen strings -->
+    <string name="navigate_destination_button">Navigate to destination</string>
+    <string name="navigate_action_button">Navigate with action</string>
 </resources>
