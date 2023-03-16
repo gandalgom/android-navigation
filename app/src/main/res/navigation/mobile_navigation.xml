@@ -8,7 +8,15 @@
         android:id="@+id/home_screen"
         android:name="com.gandalgom.sample.navigation.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/move_to_step_one"
+            app:destination="@id/flow_step_one"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/flow_step_one"
         android:name="com.gandalgom.sample.navigation.FlowStepFragment"
@@ -17,6 +25,10 @@
         <action
             android:id="@+id/move_to_step_two"
             app:destination="@id/flow_step_two" />
+        <argument
+            android:name="flowStepNumber"
+            app:argType="integer"
+            android:defaultValue="1" />
     </fragment>
     <fragment
         android:id="@+id/flow_step_two"
@@ -25,11 +37,11 @@
         tools:layout="@layout/fragment_flow_step_two">
         <argument
             android:name="flowStepNumber"
-            android:defaultValue="2"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="2" />
         <action
-            android:id="@+id/move_to_home"
-            app:destination="@id/home_screen" />
+            android:id="@+id/back_to_home"
+            app:popUpTo="@id/home_screen" />
     </fragment>
     <fragment
         android:id="@+id/deep_link_screen"

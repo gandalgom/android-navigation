@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 
@@ -25,17 +26,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val options = navOptions {
-            anim {
-                enter = R.anim.slide_in_right
-                exit = R.anim.slide_out_left
-                popEnter = R.anim.slide_in_left
-                popExit = R.anim.slide_out_right
-            }
-        }
+        // Using the Navigation Graph to Navigate
         view.findViewById<Button>(R.id.navigate_destination_button)?.setOnClickListener {
-            findNavController().navigate(R.id.flow_step_one, null, options)
+            findNavController().navigate(R.id.flow_step_one, null, navOptions {
+                anim {
+                    enter = R.anim.slide_in_right
+                    exit = R.anim.slide_out_left
+                    popEnter = R.anim.slide_in_left
+                    popExit = R.anim.slide_out_right
+                }
+            })
         }
+        // Navigate using actions
+        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.move_to_step_one)
+        )
 
         // Add menu items without using the Fragment Menu APIs
         // Note how we can tie the MenuProvider to the viewLifecycleOwner
