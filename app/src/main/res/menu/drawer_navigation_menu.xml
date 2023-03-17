@@ -10,4 +10,8 @@
             android:icon="@drawable/ic_android"
             android:title="@string/deep_link" />
     </group>
+    <item
+        android:id="@+id/settings_dest"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/settings" />
 </menu>
