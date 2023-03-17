@@ -47,7 +47,9 @@
         android:id="@+id/deep_link_screen"
         android:name="com.gandalgom.sample.navigation.DeepLinkFragment"
         android:label="@string/deep_link"
-        tools:layout="@layout/fragment_deep_link" />
+        tools:layout="@layout/fragment_deep_link">
+        <deepLink app:uri="www.example.com/{myArgument}" />
+    </fragment>
     <fragment
         android:id="@+id/setting_screen"
         android:name="com.gandalgom.sample.navigation.SettingFragment"
