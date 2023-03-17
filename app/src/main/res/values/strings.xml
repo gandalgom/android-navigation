@@ -21,4 +21,8 @@
 
     <string name="deep_link_instructions">Type your deep link args</string>
     <string name="send_deep_link_notification_button">Send deep link notification</string>
+
+    <!-- Widget -->
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 </resources>
